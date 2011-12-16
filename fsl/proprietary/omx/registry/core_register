@@ -1,0 +1,23 @@
+# Register core to core manager. The core priority is [1, 5]. 1 is the lowest
+# priority, 5 is the highest priority. 3 is the default priority if the core 
+# priority hasn't set.  
+#
+# Usage:
+# @ means the begin of one core.
+# # means comments.
+# $ means the end of one core.
+# ; means finish of one tag value.
+# envirenment value should be set: CORE_REGISTER_FILE=../registry/core_register 
+
+@
+core_name=FSL_CORE;
+core_library_path=lib_omx_core_v2_arm11_elinux.so;
+core_priority=3;
+$
+
+#@
+#core_name=FSL_CORE_OLD;
+#core_library_path=lib_omx_core_arm11_elinux.so;
+#core_priority=3;
+#$
+

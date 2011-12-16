@@ -1,0 +1,26 @@
+# Register content pipe to core. 
+#
+# Usage:
+# @ means the begin of one content pipe.
+# # means comments.
+# $ means the end of one content pipe.
+# ; means finish of one tag value.
+# envirenment value should be set: CONTENTPIPE_REGISTER_FILE=../registry/contentpipe_register 
+
+@
+content_pipe_name=LOCAL_FILE_PIPE_NEW;
+content_pipe_library_path=lib_omx_local_file_pipe_v2_arm11_elinux.so;
+content_pipe_entry_function=LocalFilePipe_Init;
+$
+
+@
+content_pipe_name=SHAREDFD_PIPE;
+content_pipe_library_path=lib_omx_shared_fd_pipe_arm11_elinux.so;
+content_pipe_entry_function=SharedFdPipe_Init;
+$
+
+@
+content_pipe_name=HTTPS_PIPE;
+content_pipe_library_path=lib_omx_https_pipe_arm11_elinux.so;
+content_pipe_entry_function=HttpsPipe_Init;
+$

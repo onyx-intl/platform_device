@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MediaSettings>
+    <!-- Each camcorder profile defines a set of predefined configuration parameters -->
+    <CamcorderProfiles cameraId="0">
+
+        <EncoderProfile quality="high" fileFormat="mp4" duration="30">
+            <Video codec="h264"
+                   bitRate="1500000"
+                   width="640"
+                   height="480"
+                   frameRate="30" />
+
+            <Audio codec="amrnb"
+                   bitRate="23450"
+                   sampleRate="8000"
+                   channels="1" />
+
+            <Camera previewFrameRate="30" />
+			<EncoderOutputFileFormat name="mp4" />
+	   </EncoderProfile>
+
+        <EncoderProfile quality="low" fileFormat="3gp" duration="30">
+            <Video codec="h263"
+                   bitRate="6000000"
+                   width="320"
+                   height="240"
+                   frameRate="30" />
+
+            <Audio codec="amrnb"
+                   bitRate="23450"
+                   sampleRate="8000"
+                   channels="1" />
+
+        <Camera previewFrameRate="30" />
+		<EncoderOutputFileFormat name="3gp" />
+        </EncoderProfile>
+
+			<ImageEncoding quality="70" />
+			<ImageEncoding quality="80" />
+			<ImageEncoding quality="90" />
+			<ImageDecoding memCap="20000000" />
+    </CamcorderProfiles>
+
+
+
+
+    <!--
+         If a codec is not enabled, it is invisible to the applications
+         In other words, the applications won't be able to use the codec
+         or query the capabilities of the codec at all if it is disabled
+    -->
+    <VideoEncoderCap name="h263" enabled="true"
+        minBitRate="48000" maxBitRate="8000000"
+        minFrameWidth="176" maxFrameWidth="1280"
+        minFrameHeight="144" maxFrameHeight="720"
+        minFrameRate="1" maxFrameRate="30" />
+
+    <VideoEncoderCap name="h264" enabled="true"
+        minBitRate="64000" maxBitRate="8000000"
+        minFrameWidth="176" maxFrameWidth="1280"
+        minFrameHeight="144" maxFrameHeight="720"
+        minFrameRate="1" maxFrameRate="30" />
+
+    <AudioEncoderCap name="amrnb" enabled="true"
+        minBitRate="5525" maxBitRate="12200"
+        minSampleRate="8000" maxSampleRate="8000"
+        minChannels="1" maxChannels="1" />
+
+    <AudioEncoderCap name="mp3" enabled="true"
+        minBitRate="32000" maxBitRate="320000"
+        minSampleRate="32000" maxSampleRate="48000"
+        minChannels="1" maxChannels="1" />
+</MediaSettings>

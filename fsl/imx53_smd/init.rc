@@ -1,0 +1,97 @@
+on boot
+
+    # Set permission for IIM node
+    symlink /dev/mxc_iim /dev/mxc_mem
+
+    symlink /dev/ttymxc1 /dev/gpsdevice
+    setprop ro.kernel.android.gps ttya
+    setprop athr.gps.hookspath /system/etc
+    #export uart2 and set the default value
+    write /sys/class/gpio/export 44
+    write /sys/class/gpio/gpio44/direction "out"
+    write /sys/class/gpio/gpio44/value 1
+
+    # 3D acceleration property
+    setprop debug.sf.showfps    0
+    setprop debug.sf.enable_hgl 1
+    setprop debug.egl.hw	1
+
+    # fsl omx graphic manager media framework property
+    setprop media.omxgm.enable-player 1
+	setprop media.omxgm.enable-record 0
+    setprop media.omxgm.enable-scan 1
+
+    # set video render type
+    setprop rw.VIDEO_RENDER_NAME video_render.overlay
+
+    #Define the config for dual camera
+    #For landscape mode, orient is 0
+    #For portrait mode, orient is 90
+    #the android before honycomb are all in portrait mode
+    setprop back_camera_name ov
+    setprop back_camera_orient 90
+
+    # Set OpenGLES version
+    setprop ro.opengles.version 131072
+
+    # Disable UI output for second display during video playback
+    setprop ro.secfb.disable-overlay  0
+
+    # Enable auto configuration with 1, disable with 0
+    setprop ro.AUTO_CONFIG_DISPLAY  1
+
+    # Set rotation to 270 to cofigure as portrait mode
+    setprop ro.sf.hwrotation 270
+
+    # hdmi audio output
+    setprop ro.HDMI_AUDIO_OUTPUT 1
+
+    # Video output choices for dual display
+    # Video on secondary display
+    setprop ro.SIN_VIDEO_DUAL_UI 1
+    # UI on primary display
+    #(seconday display no more than 720P for imx53)
+    setprop ro.DUAL_VIDEO_SIN_UI 0
+    # Unsupported
+    #setprop ro.DUAL_VIDEO_DUAL_UI 0
+
+    # Set light sensor sysfs path and light sensor threshold lux value
+    setprop ro.hardware.lightsensor "/sys/class/i2c-dev/i2c-2/device/2-0044/"
+    setprop ro.lightsensor.threshold  20
+
+    # Set mag3110 sensor sysfs path
+    setprop ro.hardware.magsensor "/sys/class/i2c-dev/i2c-1/device/1-000e/"
+    setprop ro.sensor.mag_cfg_file  "/system/etc/magd.conf"
+
+# Daemon processes to be run by init.
+service hciattach /system/bin/logwrapper /system/bin/hciattach -n ttymxc2 ath3k 3000000 flow sleep
+    user root
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+# magd daemon
+service magd /system/bin/magd
+    user system
+    group input
+    oneshot
+
+# Orion InG
+service ing /data/app/ing/ingsvcd
+    user root
+    group gps
+
+service wpa_supplicant /system/bin/wlan_tool wpa_supplicant
+    socket wpa_wlan0 dgram 660 root wifi
+    disabled
+    oneshot
+
+service wlan_tool /system/bin/wlan_tool
+    oneshot
+
+on fs
+# mount ext4 partitions
+    mount ext4 /dev/block/mmcblk0p2 /system
+    mount ext4 /dev/block/mmcblk0p2 /system ro remount
+    mount ext4 /dev/block/mmcblk0p5 /data nosuid nodev nodelalloc
+    mount ext4 /dev/block/mmcblk0p6 /cache nosuid nodev
