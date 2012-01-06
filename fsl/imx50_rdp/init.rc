@@ -35,6 +35,8 @@ service wlan_tool /system/bin/wlan_tool
     oneshot
 
 on fs
+#mount fat32 partitions
+#    mount vfat /dev/block/mmcblk0p1 /mnt/sdcard nosuid nodev
 # mount ext4 partitions
     mount ext4 /dev/block/mmcblk0p2 /system
     mount ext4 /dev/block/mmcblk0p2 /system rw remount
