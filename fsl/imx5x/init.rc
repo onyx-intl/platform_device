@@ -31,8 +31,6 @@ loglevel 3
     export COMPONENT_REGISTER_FILE /system/etc/component_register
     export CONTENTPIPE_REGISTER_FILE /system/etc/contentpipe_register
 
-    export TSLIB_SERIAL_NODE  /dev/ttymxc1
-    export ADB_TRACE  all
 
 # Backward compatibility
     symlink /system/etc /etc
@@ -197,7 +195,8 @@ on boot
     insmod /system/lib/modules/2.6.35.3+/kernel/sound/soc/codecs/snd-soc-wm8976.ko
     insmod /system/lib/modules/2.6.35.3+/kernel/sound/soc/imx/snd-soc-imx-3stack-wm8976.ko
     insmod /system/lib/modules/2.6.35.3+/kernel/fs/nls/nls_utf8.ko
-    insmod /system/lib/modules/2.6.35.3+/kernel/fs/nls/nls_ascii.ko 
+    insmod /system/lib/modules/2.6.35.3+/kernel/fs/nls/nls_ascii.ko
+    insmod /system/lib/modules/2.6.35.3+/kernel/net/bluetooth/bluetooth.ko
 
 # basic network init
     ifup lo
@@ -357,7 +356,8 @@ on boot
 
 # Prepare for wifi
     setprop wifi.interface wlan0
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0777 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0777 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
