@@ -194,9 +194,6 @@ on boot
     insmod /system/lib/modules/2.6.35.3+/kernel/sound/soc/imx/snd-soc-imx-ssi.ko
     insmod /system/lib/modules/2.6.35.3+/kernel/sound/soc/codecs/snd-soc-wm8976.ko
     insmod /system/lib/modules/2.6.35.3+/kernel/sound/soc/imx/snd-soc-imx-3stack-wm8976.ko
-    insmod /system/lib/modules/2.6.35.3+/kernel/fs/nls/nls_utf8.ko
-    insmod /system/lib/modules/2.6.35.3+/kernel/fs/nls/nls_ascii.ko
-    insmod /system/lib/modules/2.6.35.3+/kernel/net/bluetooth/bluetooth.ko
 
 # basic network init
     ifup lo
