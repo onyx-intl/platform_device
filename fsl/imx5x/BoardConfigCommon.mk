@@ -12,8 +12,10 @@ TARGET_NO_KERNEL := true
 TARGET_NO_RECOVERY := false
 TARGET_NO_RADIOIMAGE := true
 TARGET_BUILD_KERNEL := true
-TARGET_KERNEL_DEFCONF := onyx_m92_android_defconfig
-TARGET_KERNEL_INITRAMFS_DEFCONF := onyx_m92_android_initramfs_defconfig
+#TARGET_KERNEL_DEFCONF := onyx_m92_android_defconfig
+TARGET_KERNEL_DEFCONF := onyx_ir_android_defconfig
+#TARGET_KERNEL_INITRAMFS_DEFCONF := onyx_m92_android_initramfs_defconfig
+TARGET_KERNEL_INITRAMFS_DEFCONF := onyx_ir_android_initramfs_defconfig
 
 TARGET_PROVIDES_INIT_RC := true
 
