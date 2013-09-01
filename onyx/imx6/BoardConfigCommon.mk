@@ -42,7 +42,7 @@ BUILD_WITH_GST := false
 # for ums config, only export one partion instead of the whole disk
 UMS_ONEPARTITION_PER_DISK := true
 
-PREBUILT_FSL_IMX_CODEC := true
+#PREBUILT_FSL_IMX_CODEC := true
 PREBUILT_FSL_IMX_OMX := false
 PREBUILT_FSL_IMX_GPU := true
 

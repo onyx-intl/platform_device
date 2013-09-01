@@ -73,10 +73,7 @@ PRODUCT_PACKAGES += \
 	RamPatch.txt
 
 # Freescale VPU firmware files.
-PRODUCT_PACKAGES += \
-	libvpu					\
-	vpu_fw_imx6q.bin			\
-	vpu_fw_imx6d.bin			\
+
 
 # Atheros wifi firmwre files.
 PRODUCT_PACKAGES += \
