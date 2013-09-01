@@ -1,0 +1,16 @@
+key 158    BACK		   WAKE
+key 116    POWER           WAKE
+key 139    MENU		   WAKE
+key 412    BACK		   WAKE
+key 102    HOME		   WAKE
+key 28     DPAD_CENTER	   WAKE
+key 103    DPAD_UP	   WAKE
+key 105    DPAD_LEFT	   WAKE
+key 106    DPAD_RIGHT	   WAKE
+key 108    DPAD_DOWN	   WAKE
+key 114    VOLUME_DOWN	   WAKE
+key 115    VOLUME_UP	   WAKE
+key 109    PAGE_DOWN	   WAKE
+key 104    PAGE_UP	   WAKE
+key 143    NUM             WAKE_DROPPED
+
