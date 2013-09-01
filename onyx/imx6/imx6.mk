@@ -50,9 +50,6 @@ PRODUCT_PACKAGES += \
 	powerdebug
 
 # Wifi AP mode
-PRODUCT_PACKAGES += \
-	hostapd 				\
-	hostapd_cli
 
 # keyboard mapping files.
 PRODUCT_PACKAGES += \
@@ -60,25 +57,12 @@ PRODUCT_PACKAGES += \
 	mxckpd.kcm				\
 
 #audio related lib
-PRODUCT_PACKAGES += \
-	audio.tinyalsa.freescale 		\
-	audio.legacy.freescale 			\
-	alsa_aplay             			\
-	alsa_arecord				\
-	alsa_amixer     			\
-	alsa_ctl        			\
-	libtinyalsa 				\
-	libaudioutils
 
 # imx6 Hardware HAL libs.
 PRODUCT_PACKAGES += \
-	sensors.freescale			\
-	overlay.imx6				\
 	lights.freescale			\
 	gralloc.imx6				\
 	copybit.imx6				\
-	alsa.freescale				\
-	audio.primary.freescale			\
 	hwcomposer.imx6             		\
 	magd
 
@@ -105,29 +89,6 @@ PRODUCT_PACKAGES += \
 	ath6kl_sdio.ko          		\
 	check_wifi_mac.sh
 
-# Atheros wifi tool
-PRODUCT_PACKAGES += \
-	abtfilt					\
-	artagent				\
-	ath6kl-fwlog-record			\
-	athtestcmd				\
-	psatUtil				\
-	wmiconfig
-
-# Intel PCIE wifi firmware
-PRODUCT_PACKAGES += \
-	iwlwifi-6000-4.ucode			\
-	iwlwifi-5000-5.ucode			\
-	iwlagn.ko
-
-# gps related lib
-PRODUCT_PACKAGES += \
-	gps.freescale				\
-	Orion.ini 				\
-	AR1520A-Auto.img 			\
-	ingsvcd 				\
-	libOrionCtl.so 				\
-	OrionSys.so
 
 # drm related lib
 PRODUCT_PACKAGES += \
@@ -161,7 +122,6 @@ PRODUCT_COPY_FILES +=	\
 	device/fsl/imx6/etc/apns-conf.xml:system/etc/apns-conf.xml \
 	device/fsl/imx6/etc/init.usb.rc:root/init.freescale.usb.rc \
 	device/fsl/imx6/etc/ueventd.freescale.rc:root/ueventd.freescale.rc \
-	device/fsl/imx6/etc/init.gprs-pppd:system/etc/init.gprs-pppd \
 	device/fsl/imx6/etc/ota.conf:system/etc/ota.conf \
 	device/fsl/common/display/display_mode_fb0.conf:system/etc/display_mode_fb0.conf \
 	device/fsl/common/display/display_mode_fb2.conf:system/etc/display_mode_fb2.conf \

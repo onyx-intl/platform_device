@@ -10,7 +10,7 @@ BOARD_SOC_CLASS := IMX6
 
 # Wifi
 #BOARD_WLAN_VENDOR 			 := ATHEROS
-BOARD_WIFI_VENDOR 			 := realtek
+#BOARD_WIFI_VENDOR 			 := realtek
 # for atheros vendor
 ifeq ($(BOARD_WLAN_VENDOR),ATHEROS)
 BOARD_WLAN_DEVICE := ar6003
@@ -62,8 +62,8 @@ endif
 BOARD_HAVE_VPU := true
 BOARD_MODEM_VENDOR := AMAZON
 
-BOARD_HAVE_HARDWARE_GPS := true
-USE_ATHR_GPS_HARDWARE := true
+BOARD_HAVE_HARDWARE_GPS := false
+USE_ATHR_GPS_HARDWARE := false
 USE_QEMU_GPS_HARDWARE := false
 
 #for accelerator sensor, need to define sensor type here

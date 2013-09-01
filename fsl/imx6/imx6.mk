@@ -50,9 +50,6 @@ PRODUCT_PACKAGES += \
 	powerdebug
 
 # Wifi AP mode
-PRODUCT_PACKAGES += \
-	hostapd 				\
-	hostapd_cli
 
 # keyboard mapping files.
 PRODUCT_PACKAGES += \
@@ -60,15 +57,7 @@ PRODUCT_PACKAGES += \
 	mxckpd.kcm				\
 
 #audio related lib
-PRODUCT_PACKAGES += \
-	audio.tinyalsa.freescale 		\
-	audio.legacy.freescale 			\
-	alsa_aplay             			\
-	alsa_arecord				\
-	alsa_amixer     			\
-	alsa_ctl        			\
-	libtinyalsa 				\
-	libaudioutils
+
 
 # imx6 Hardware HAL libs.
 PRODUCT_PACKAGES += \
@@ -138,96 +127,6 @@ PRODUCT_PACKAGES += \
 	libdrmpassthruplugin        		\
 	libfwdlockengine            		\
 
-# Omx related libs, please align to device/fsl/proprietary/omx/fsl-omx.mk
-omx_libs := \
-	core_register					\
-	component_register				\
-	contentpipe_register				\
-	fslomx.cfg					\
-	media_profiles.xml				\
-	ComponentRegistry.txt				\
-	lib_omx_player_arm11_elinux			 \
-	lib_omx_client_arm11_elinux			\
-	lib_omx_core_mgr_v2_arm11_elinux		\
-	lib_omx_core_v2_arm11_elinux			\
-	lib_omx_osal_v2_arm11_elinux			\
-	lib_omx_common_v2_arm11_elinux			\
-	lib_omx_utils_v2_arm11_elinux			\
-	lib_omx_res_mgr_v2_arm11_elinux			\
-	lib_omx_clock_v2_arm11_elinux			\
-	lib_omx_local_file_pipe_v2_arm11_elinux		\
-	lib_omx_shared_fd_pipe_arm11_elinux		\
-	lib_omx_https_pipe_arm11_elinux			\
-	lib_omx_fsl_parser_v2_arm11_elinux		\
-	lib_omx_wav_parser_v2_arm11_elinux		\
-	lib_omx_mp3_parser_v2_arm11_elinux		\
-	lib_omx_aac_parser_v2_arm11_elinux		\
-	lib_omx_flac_parser_v2_arm11_elinux		\
-	lib_omx_pcm_dec_v2_arm11_elinux			\
-	lib_omx_mp3_dec_v2_arm11_elinux			\
-	lib_omx_aac_dec_v2_arm11_elinux			\
-	lib_omx_amr_dec_v2_arm11_elinux			\
-	lib_omx_vorbis_dec_v2_arm11_elinux		\
-	lib_omx_flac_dec_v2_arm11_elinux		\
-	lib_omx_audio_processor_v2_arm11_elinux		\
-	lib_omx_sorenson_dec_v2_arm11_elinux		\
-	lib_omx_android_audio_render_arm11_elinux	\
-	lib_omx_audio_fake_render_arm11_elinux		\
-	lib_omx_ipulib_render_arm11_elinux		\
-	lib_avi_parser_arm11_elinux.3.0			\
-	lib_divx_drm_arm11_elinux			\
-	lib_mp4_parser_arm11_elinux.3.0			\
-	lib_mkv_parser_arm11_elinux.3.0			\
-	lib_flv_parser_arm11_elinux.3.0			\
-	lib_id3_parser_arm11_elinux			\
-	lib_wav_parser_arm11_elinux			\
-	lib_mp3_parser_v2_arm11_elinux			\
-	lib_aac_parser_arm11_elinux			\
-	lib_flac_parser_arm11_elinux			\
-	lib_mp3_dec_v2_arm12_elinux			\
-	lib_aac_dec_v2_arm12_elinux			\
-	lib_flac_dec_v2_arm11_elinux			\
-	lib_nb_amr_dec_v2_arm9_elinux			\
-	lib_oggvorbis_dec_v2_arm11_elinux		\
-	lib_peq_v2_arm11_elinux				\
-	lib_mpg2_parser_arm11_elinux.3.0		\
-	libstagefrighthw				\
-	libxec						\
-	lib_omx_vpu_v2_arm11_elinux			\
-	lib_omx_vpu_dec_v2_arm11_elinux			\
-	lib_vpu_wrapper					\
-	lib_ogg_parser_arm11_elinux.3.0		\
-	libfslxec					\
-	lib_omx_overlay_render_arm11_elinux             \
-	lib_omx_fsl_muxer_v2_arm11_elinux \
-	lib_omx_mp3_enc_v2_arm11_elinux \
-	lib_omx_amr_enc_v2_arm11_elinux \
-	lib_omx_android_audio_source_arm11_elinux \
-	lib_omx_camera_source_arm11_elinux \
-	lib_mp4_muxer_arm11_elinux \
-	lib_mp3_enc_v2_arm12_elinux \
-	lib_nb_amr_enc_v2_arm11_elinux \
-	lib_omx_vpu_enc_v2_arm11_elinux \
-	lib_ffmpeg_arm11_elinux	\
-	lib_omx_https_pipe_v2_arm11_elinux \
-	lib_omx_streaming_parser_arm11_elinux \
-	lib_omx_surface_render_arm11_elinux \
-	libfsl_jpeg_enc_arm11_elinux \
-	lib_wb_amr_enc_arm11_elinux \
-	lib_wb_amr_dec_arm9_elinux \
-	lib_omx_aac_enc_v2_arm11_elinux
-
-# Omx excluded libs
-omx_excluded_libs :=					\
-	lib_asf_parser_arm11_elinux.3.0			\
-	lib_wma10_dec_v2_arm12_elinux		\
-	lib_WMV789_dec_v2_arm11_elinux.so		\
-	lib_aacplus_dec_v2_arm11_elinux			\
-	lib_ac3_dec_v2_arm11_elinux			\
-	\
-	lib_omx_wma_dec_v2_arm11_elinux			\
-	lib_omx_wmv_dec_v2_arm11_elinux			\
-	lib_omx_ac3_dec_v2_arm11_elinux			\
 
 
 PRODUCT_PACKAGES += $(omx_libs) $(omx_excluded_libs)
