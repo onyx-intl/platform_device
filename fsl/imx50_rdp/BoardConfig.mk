@@ -26,6 +26,7 @@ BOARD_HAVE_VPU := false
 HAVE_FSL_IMX_GPU := true
 HAVE_FSL_IMX_IPU := false
 
+
 HAVE_FSL_EPDC_FB := true
 
 BOARD_CAMERA_NV12 := false
